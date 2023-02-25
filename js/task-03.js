@@ -14,13 +14,19 @@ const images = [
 ];
 
 const gallery = document.querySelector(".gallery");
-const insertImg = images.map(
-  (image) => `<img src="${image.url}" alt="${image.alt}" width = "33%" >`
-);
+const insertImg = images
+  .map(
+    (image) =>
+      `<li><img src="${image.url}" class="img" alt="${image.alt}" width="400px"></li>`
+  )
+  .join("");
 
-insertImg.forEach((value) => {
-  gallery.insertAdjacentHTML("afterbegin", value);
-});
+// insertImg.forEach((value) => {
+//   gallery.insertAdjacentHTML("afterbegin", value);
+// });
+
+gallery.insertAdjacentHTML("afterbegin", insertImg);
 
 gallery.style.display = "flex";
 gallery.style.gap = "10px";
+gallery.style.listStyle = "none";
